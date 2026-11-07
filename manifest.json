@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Style Spy",
+  "version": "1.0.0",
+  "description": "Inspect website colours and typography, save design kits, and export CSS variables.",
+  "permissions": ["activeTab", "scripting", "storage", "downloads"],
+  "action": {
+    "default_title": "Style Spy",
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style Spy</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">S</div>
+        <div><h1>Style Spy</h1><p id="domain">Inspecting this website</p></div>
+      </div>
+      <button class="icon-button" id="refresh" title="Rescan website" aria-label="Rescan website">↻</button>
+    </header>
+
+    <div id="status" class="status" role="status" aria-live="polite">Scanning visible styles…</div>
+
+    <section class="preview-card" aria-label="Live style preview">
+      <div class="preview-heading">
+        <div><span class="eyebrow">LIVE PREVIEW</span><strong id="preview-name">Current page</strong></div>
+        <select id="preview-kit" aria-label="Preview design kit"></select>
+      </div>
+      <div id="preview" class="preview">
+        <div class="preview-window">
+          <span class="preview-badge">STYLE KIT</span>
+          <h2>Design with intention.</h2>
+          <p>A small preview of the colours and typography in this design system.</p>
+          <button type="button" class="preview-button">Explore styles</button>
+          <div class="preview-mini-card"><span></span><div><b>Thoughtful details</b><small>Colour · Type · Balance</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Style sections">
+      <button class="tab active" data-panel="colours">Colours</button>
+      <button class="tab" data-panel="fonts">Fonts</button>
+      <button class="tab" data-panel="kits">Saved kits <span id="kit-count">0</span></button>
+    </nav>
+
+    <main>
+      <section id="panel-colours" class="panel active">
+        <div class="section-title"><div><h2>Colour palette</h2><p id="colour-summary">Ranked by visible usage</p></div>
+          <button class="text-button" id="copy-colours">Copy all</button></div>
+        <div id="colours-list" class="colour-list"></div>
+        <div id="gradients" class="gradient-note" hidden></div>
+        <button id="save-kit" class="primary-button">＋ <span>Save current kit</span></button>
+      </section>
+
+      <section id="panel-fonts" class="panel">
+        <div class="section-title"><div><h2>Typography</h2><p id="font-summary">Common visible text styles</p></div>
+          <button class="text-button" id="copy-fonts">Copy all</button></div>
+        <div id="families" class="family-row"></div>
+        <div id="fonts-list" class="font-list"></div>
+        <button id="copy-css-current" class="secondary-button">Copy complete CSS variables</button>
+      </section>
+
+      <section id="panel-kits" class="panel">
+        <div class="section-title"><div><h2>Your design kits</h2><p>Stored privately on this device</p></div></div>
+        <div id="kits-list" class="kits-list"></div>
+        <div id="empty-kits" class="empty-state" hidden><span>✦</span><strong>No saved kits yet</strong><p>Save a website’s styles to build your collection.</p></div>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status"></div>
+    <footer>All analysis and kits stay on your device.</footer>
+  </div>
+  <script src="utils/clipboard.js"></script>
+  <script src="utils/storage.js"></script>
+  <script src="scripts/css-exporter.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
